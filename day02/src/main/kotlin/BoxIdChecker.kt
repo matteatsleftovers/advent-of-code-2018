@@ -1,4 +1,4 @@
-class CheckSummer {
+class BoxIdChecker {
 
     fun checkSum(strings: Iterable<String>): Int {
         return strings.sumBy { twoOf(it) } * strings.sumBy { threeOf(it) }
