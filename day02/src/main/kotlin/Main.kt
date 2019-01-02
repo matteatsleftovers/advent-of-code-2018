@@ -1,7 +1,8 @@
 import java.io.File
 
 fun main() {
-    val input = File(ClassLoader.getSystemResource("input.txt").file)
+    val input = File(ClassLoader.getSystemResource("input.txt").file).readLines()
 
-    // Write solution here!
+    val checkSummer = CheckSummer()
+    println("The checksum of the strings is ${checkSummer.checkSum(input)}.")
 }
