@@ -43,4 +43,25 @@ class BoxIdCheckerTest : StringSpec({
         }
     }
 
+    "Common letters between two correct box IDs" {
+        forall(
+                row(BoxIdChecker(),
+                        listOf("abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"),
+                        "fgij")
+        ) { boxIdChecker, input, expected ->
+            boxIdChecker.commonLetters(strings = input) shouldBe expected
+        }
+    }
+
+    "Longest common subsequence" {
+        forall(
+                row(BoxIdChecker(), listOf("abcde", "axcye"), "ace"),
+                row(BoxIdChecker(), listOf("fghij", "fguij"), "fgij"),
+                row(BoxIdChecker(), listOf("AGCAT", "GACA"), "GCA"),
+                row(BoxIdChecker(), listOf("bvhfawknyoqsudzrpgslecmtkj", "bpufawcnyoqxldzrpgsleimtkj"), "bfawnyoqdzrpgslemtkj")
+        ) { boxIdChecker, input, expected ->
+            boxIdChecker.lcs(input[0], input[1]) shouldBe expected
+        }
+    }
+
 })
