@@ -5,4 +5,5 @@ fun main() {
 
     val fabricMapper = FabricMapper(Fabric(1000, 1000))
     println("The area at least twice claimed is ${fabricMapper.calculateAreaAtLeastTwiceClaimed(input)}.")
+    println("The intact claim after all this is ${fabricMapper.getIntactClaim(input)}.")
 }
